@@ -397,6 +397,7 @@ def process_csv(dir_name, filename, label_name, favorable_class, sensitive_attri
     else:
         df['z'] = df[sensitive_attributes[0]].astype('category').cat.codes
     df = df.drop(columns = sensitive_attributes)
+    df = df.astype('float64')
     return df
 
 def nsfData(q = (0.99, 0.01), theta = (0.38/0.99, -0.5), train_samples = 3000, test_samples = 300, seed = 123):
